@@ -41,6 +41,17 @@ public class SimpleLinkedList {
         }
         current.next = null;
     }
+    public Node search(int key) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                System.out.println("The element exist in Linkedlist");
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
 
     public void printData(){
         Node current = head;
@@ -60,8 +71,6 @@ public class SimpleLinkedList {
         list.insertAfter(list.head, 30);
         list.printData();
 
-        list.popLast();
-        list.printData();
-
+        list.search(30);
     }
 }
