@@ -1,5 +1,4 @@
 package linkedListPrograms;
-
 public class SimpleLinkedList {
     Node head;
     public void addNode(int data){
@@ -52,7 +51,32 @@ public class SimpleLinkedList {
         }
         return null;
     }
+    public void popElement(int key) {
+        if (head == null) {
+            System.out.println("Cannot remove from an empty list.");
+            return;
+        }
 
+        if (head.data == key) {
+            head = head.next;
+            return;
+        }
+
+        Node current = head;
+        Node prev = null;
+
+        while (current != null && current.data != key) {
+            prev = current;
+            current = current.next;
+        }
+
+        if (current == null) {
+            System.out.println("Node with key " + key + " not found.");
+            return;
+        }
+
+        prev.next = current.next;
+    }
     public void printData(){
         Node current = head;
         while (current != null) {
@@ -70,6 +94,7 @@ public class SimpleLinkedList {
 
         list.insertAfter(list.head, 30);
         list.printData();
+        list.search(30);
 
         Node nodeWith30 = list.head;
         while (nodeWith30 != null && nodeWith30.data != 30) {
@@ -81,6 +106,8 @@ public class SimpleLinkedList {
         } else {
             System.out.println("Node with value 30 not found in the linked list.");
         }
+        list.printData();
+        list.popElement(40);
         list.printData();
     }
 }
