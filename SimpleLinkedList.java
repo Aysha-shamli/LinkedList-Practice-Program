@@ -71,6 +71,19 @@ public class SimpleLinkedList {
         list.insertAfter(list.head, 30);
         list.printData();
 
-        list.search(30);
+        Node nodeWith30 = list.head;
+        while (nodeWith30 != null && nodeWith30.data != 30) {
+            nodeWith30 = nodeWith30.next;
+        }
+
+        if (nodeWith30 != null) {
+            list.insertAfter(nodeWith30, 40);
+        } else {
+            System.out.println("Node with value 30 not found in the linked list.");
+        }
+        list.printData();
     }
 }
+
+
+
