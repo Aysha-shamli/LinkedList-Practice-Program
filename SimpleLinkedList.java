@@ -34,6 +34,14 @@ public class SimpleLinkedList {
             System.out.println("Cannot pop from an empty list.");
         }
     }
+    public void popLast() {
+        Node current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        current.next = null;
+    }
+
     public void printData(){
         Node current = head;
         while (current != null) {
@@ -49,10 +57,10 @@ public class SimpleLinkedList {
         list.addNode(70);
         list.printData();
 
-        list.insertAfter(list.head, 40);
+        list.insertAfter(list.head, 30);
         list.printData();
 
-        list.pop();
+        list.popLast();
         list.printData();
 
     }
