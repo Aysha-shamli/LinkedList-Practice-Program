@@ -27,6 +27,13 @@ public class SimpleLinkedList {
         newNode.next = prevNode.next;
         prevNode.next = newNode;
     }
+    public void pop() {
+        if (head != null) {
+            head = head.next;
+        } else {
+            System.out.println("Cannot pop from an empty list.");
+        }
+    }
     public void printData(){
         Node current = head;
         while (current != null) {
@@ -44,5 +51,9 @@ public class SimpleLinkedList {
 
         list.insertAfter(list.head, 40);
         list.printData();
+
+        list.pop();
+        list.printData();
+
     }
 }
